@@ -1,0 +1,304 @@
+/* ========== Modern Professional Dark Theme ========== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.25s ease;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #225ce4, #0ecc7d);
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(37,99,235,0.1));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(37,99,235,0.2);
+}
+header h1 {
+  display: flex;            /* align image and text */
+  align-items: center;      /* vertically center */
+  gap: 12px;                /* space between logo and text */
+  font-size: 2rem;          /* adjust as needed */
+  font-weight: 700;
+  color: #1e3a8a;
+  justify-content: center;  /* center content horizontally */
+}
+
+header h1 img {
+  width: 60px;              /* smaller for better alignment */
+  height: 60px;             /* maintain square */
+  object-fit: contain;      /* keep proportions */
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+header .small {
+  font-size: 1.7rem;
+  color: #2be149;
+}
+
+/* ===== Panels ===== */
+.panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  font-size: 1.6rem;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37,99,235,0.25);
+}
+
+h3, h4 {
+  color: #e2e8f0;
+  margin-bottom: .6rem;
+}
+
+/* ===== Inputs & Buttons ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+    margin-bottom: 1rem;
+
+}
+
+.controls input, .controls select {
+  padding: .75rem .75rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  border: 1px solid #334155;
+  background: rgba(30,41,59,0.7);
+  color: #e2e8f0;
+  outline: none;
+}
+
+.controls input::placeholder {
+  color: #64748b;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37,99,235,0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transform: scale(1.05);
+}
+
+.btn.secondary {
+  background: rgba(255,255,255,0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ===== Boards ===== */
+.board {
+  min-height: 90px;
+  background: rgba(31, 69, 157, 0.75);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items:first baseline;
+  padding: .8rem;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+}
+
+.cells {
+  display: flex;
+  gap: .5rem;
+  align-items: flex-end;
+}
+
+/* ===== Cells ===== */
+.cell {
+  background: linear-gradient(145deg, #1e40af, #3b82f6);
+  color: white;
+  border-radius: 10px;
+  min-width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.cell.highlight {
+  background: linear-gradient(145deg, #16a34a, #22c55e);
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(34,197,94,0.5);
+}
+
+.cell::after {
+  content: attr(data-index);
+  position: absolute;
+  bottom: -1.3rem;
+  font-size: .7rem;
+  color: #94a3b8;
+}
+
+/* ===== Stack & Queue Layouts ===== */
+.ds-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stack-section, .queue-section {
+  flex: 1;
+}
+
+.stack-section .cells, .queue-section .cells {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.queue-section .cells {
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.cell.head::before, .cell.tail::before {
+  position: absolute;
+  top: -1.3rem;
+  left: 0;
+  right: 0;
+  font-size: .7rem;
+  font-weight: 600;
+}
+
+.cell.head::before {
+  content: "Head";
+  color: #f87171;
+}
+
+.cell.tail::before {
+  content: "Tail";
+  color: #4ade80;
+}
+
+/* ===== Tree Visualization ===== */
+.tree-canvas {
+  background: rgba(31, 69, 157, 0.75);
+  border-radius: 12px;
+  text-align: center;
+  padding: .5rem;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+#tree-svg {
+  margin-top: .6rem;
+}
+
+.node {
+  fill: url(#nodeGradient);
+  stroke: #1e293b;
+  stroke-width: 3;
+  cursor: pointer;
+}
+
+.node:hover {
+  fill: #22c55e;
+}
+
+.edge {
+  stroke: #475569;
+  stroke-width: 3;
+}
+
+.label {
+  font-size: 12px;
+  fill: white;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* ===== Quick Controls & How It Works Section ===== */
+.extra-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.extra-section .panel {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  text-decoration-thickness: initial ;
+  padding: .8rem;
+  font-size: 1.7rem;
+  color: #1c71e8;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;           /* flex for aligning text and image */
+  align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center */
+  gap: 6px;                /* space between text and image */
+  flex-wrap: wrap;
+}
+
+footer img {
+  width: 20px;             /* small icon size */
+  height: 20px;
+  object-fit: contain;     /* keep proportions */
+  vertical-align: middle;
+  border-radius: 4px;
+}
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel, .cell {
+  animation: fadeIn 0.6s ease;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .extra-section {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Structures Visualizer — Array · Stack · Queue · Binary Tree</title>
+  <link rel="icon" href="./Images/Logo.jpg">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1><img src="./Images/Logo.jpg">Data Structures Visualizer</h1>
+        <p class="small">Interactive visual demo — Array · Stack · Queue · Binary Search Tree. </p>
+      </div>
+      <div class="small">See the Logic. Master the Code.</div>
+    </header>
+
+    <div class="left">
+      <section class="panel">
+        <h3>Array — dynamic view + internal indices</h3>
+        <div class="controls" id="array-controls">
+          <input id="arr-val" placeholder="value" />
+          <input id="arr-index" type="number" placeholder="index (optional)" />
+          <button class="btn" id="arr-insert">Insert</button>
+          <button class="btn secondary" id="arr-remove">Remove at index</button>
+          <button class="btn secondary" id="arr-reset">Reset</button>
+        </div>
+        <div class="board" id="array-board">
+          <div class="cells" id="array-cells"></div>
+        </div>
+        <div class="small">Under the hood: JS array with visual index labels.</div>
+      </section>
+
+      <section class="panel">
+        <div class="ds-row">
+          <div class="stack-section">
+            <h4>Stack — LIFO</h4>
+            <div class="controls" id="stack-controls">
+              <input id="stack-val" placeholder="value" />
+              <button class="btn" id="stack-push">Push</button>
+              <button class="btn secondary" id="stack-pop">Pop</button>
+              <button class="btn secondary" id="stack-clear">Clear</button>
+            </div>
+            <div class="board" id="stack-board">
+              <div class="cells" id="stack-cells"></div>
+            </div>
+            <div class="small">Push adds to top — Pop removes from top.</div>
+          </div>
+
+          <div class="queue-section">
+            <h4>Queue — FIFO</h4>
+            <div class="controls" id="queue-controls">
+              <input id="queue-val" placeholder="value" />
+              <button class="btn" id="queue-enq">Enqueue</button>
+              <button class="btn secondary" id="queue-deq">Dequeue</button>
+              <button class="btn secondary" id="queue-clear">Clear</button>
+            </div>
+            <div class="board" id="queue-board">
+              <div class="cells" id="queue-cells"></div>
+            </div>
+            <div class="small">Enqueue adds to tail; Dequeue removes from head.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h4>Binary Search Tree — insert / remove / traverse</h4>
+        <div class="controls">
+          <input id="tree-val" placeholder="numeric value (e.g. 42)" />
+          <button class="btn" id="tree-insert">Insert</button>
+          <button class="btn secondary" id="tree-remove">Remove</button>
+          <button class="btn secondary" id="tree-reset">Reset</button>
+          <select id="tree-trav">
+            <option value="inorder">In-order</option>
+            <option value="preorder">Pre-order</option>
+            <option value="postorder">Post-order</option>
+          </select>
+          <button class="btn secondary" id="tree-trace">Traverse</button>
+        </div>
+        <div class="tree-canvas panel" id="tree-canvas">
+          <svg id="tree-svg" width="1200" height="420"></svg>
+        </div>
+        <div class="small">BST property: left < node < right.</div>
+            <div id="tree-output"></div> <!-- THIS IS THE NEW DIV -->
+      </section>
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <h3>Quick controls & export</h3>
+        <button class="btn" id="fill-sample">Fill Sample Data</button>
+        <button class="btn secondary" id="export-json">Export JSON</button>
+        <button class="btn secondary" id="download-svg">Download Tree as SVG</button>
+        <div class="legend">
+          <div class="item">🔵 Node</div>
+          <div class="item">✨ Highlight — active operation</div>
+          <div class="item">⚠️ Click a node to remove (BST)</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>How it works</h4>
+        <ol class="small">
+          <li>Array: Shows index positions clearly.</li>
+          <li>Stack: Top is highlighted.</li>
+          <li>Queue: Head & tail labeled.</li>
+          <li>Tree: Nodes positioned automatically.</li>
+        </ol>
+      </div>
+    </aside>
+
+    <footer>
+      See the Logic. Master the Code — <img src="./Images/Logo.jpg"> DSA Visualizer 2025. &copy; All Rights Reserved.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
